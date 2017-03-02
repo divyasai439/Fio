@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application guid="EVENT_PROCESS1" version="1.0">
   <display categories="User Processes" name="Event Process1"/>
-  <creation authors="eStudio" date="02-03-2017 05:12:31"/>
+  <creation authors="eStudio" date="02-03-2017 05:16:26"/>
   <deployment label="Development"/>
   <service-instances>
     <inst name="Feeder1">
@@ -203,5 +203,11 @@
       </runtime-arguments>
     </inst>
   </service-instances>
-  <routes/>
+  <routes>
+    <route name="route1">
+      <source inst="Feeder1" port="OUT_PORT"/>
+      <target inst="Display1" port="IN_PORT"/>
+      <messages/>
+    </route>
+  </routes>
 </application>
