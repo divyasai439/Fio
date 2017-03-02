@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TRADEBUS_SD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ISIN" type="xs:string" minOccurs="0" />
+        <xs:element name="ISSUER" type="xs:string" minOccurs="0" />
+        <xs:element name="CURRENCY" type="xs:string" minOccurs="0" />
+        <xs:element name="MATURITY_RANGE_FROM" type="xs:string" minOccurs="0" />
+        <xs:element name="MATURITY_RANGE_TO" type="xs:string" minOccurs="0" />
+        <xs:element name="COUPON_RANGE_MIN" type="xs:string" minOccurs="0" />
+        <xs:element name="COUPON_RANGE_MAX" type="xs:string" minOccurs="0" />
+        <xs:element name="CREDITRATING_RANGE_FROM" type="xs:string" minOccurs="0" />
+        <xs:element name="CREDITRATING_RANGE_TO" type="xs:string" minOccurs="0" />
+        <xs:element name="CREDITRATING_AGENCY" type="xs:string" minOccurs="0" />
+        <xs:element name="TICKER" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

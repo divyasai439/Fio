@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_16" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:set=&quot;http://exslt.org/sets&quot; xmlns:math=&quot;http://exslt.org/math&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:ns2=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns3=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot; xmlns:ns1=&quot;http://www.fiorano.com/fesb/activity/DB1/Response&quot; xmlns:dateConversion=&quot;ext1&quot; xmlns:myext=&quot;ext2&quot; xmlns:strings=&quot;ext3&quot; extension-element-prefixes=&quot;datetime set math dateConversion myext strings&quot;&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_OUT_PORT&quot; select=&quot;document(&apos;OUT_PORT&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;ns3:SQL_CFG_1&gt;
+      &lt;xsl:for-each select=&quot;$document_OUT_PORT/ns1:SQL_CFG_1/ns1:TIFOSITEST.PURCHASEORDERS1&quot;&gt;
+        &lt;ns3:q1&gt;
+          &lt;ns3:ORDERID&gt;
+            &lt;xsl:value-of select=&quot;./ns1:ORDERID&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:ORDERID&gt;
+          &lt;ns3:CUSTOMERID&gt;
+            &lt;xsl:value-of select=&quot;./ns1:CUSTOMERID&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:CUSTOMERID&gt;
+          &lt;ns3:EMAIL&gt;
+            &lt;xsl:value-of select=&quot;./ns1:EMAIL&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:EMAIL&gt;
+          &lt;ns3:SHIPMODE&gt;
+            &lt;xsl:value-of select=&quot;./ns1:SHIPMODE&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:SHIPMODE&gt;
+          &lt;ns3:SHIPADDRESS&gt;
+            &lt;xsl:value-of select=&quot;./ns1:SHIPADDRESS&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:SHIPADDRESS&gt;
+          &lt;ns3:SHIPCOUNTRY&gt;
+            &lt;xsl:value-of select=&quot;./ns1:SHIPCOUNTRY&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:SHIPCOUNTRY&gt;
+          &lt;ns3:SHIPPOSTALCODE&gt;
+            &lt;xsl:value-of select=&quot;./ns1:SHIPPOSTALCODE&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:SHIPPOSTALCODE&gt;
+          &lt;ns3:SHIPPHONENUMBER&gt;
+            &lt;xsl:value-of select=&quot;./ns1:SHIPPHONENUMBER&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:SHIPPHONENUMBER&gt;
+          &lt;ns3:PRODUCT&gt;
+            &lt;xsl:value-of select=&quot;./ns1:PRODUCT&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:PRODUCT&gt;
+          &lt;ns3:QUANTITY&gt;
+            &lt;xsl:value-of select=&quot;./ns1:QUANTITY&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:QUANTITY&gt;
+          &lt;ns3:PRICE&gt;
+            &lt;xsl:value-of select=&quot;./ns1:PRICE&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:PRICE&gt;
+          &lt;ns3:BILLAMOUNT&gt;
+            &lt;xsl:value-of select=&quot;./ns1:BILLAMOUNT&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:BILLAMOUNT&gt;
+          &lt;ns3:ORDERDATE&gt;
+            &lt;xsl:value-of select=&quot;./ns1:ORDERDATE&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:ORDERDATE&gt;
+        &lt;/ns3:q1&gt;
+      &lt;/xsl:for-each&gt;
+    &lt;/ns3:SQL_CFG_1&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"/> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>SQL_CFG_1</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Response&quot;&gt;
+   &lt;xsd:element name=&quot;SQL_CFG_1&quot;&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:sequence&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; name=&quot;TIFOSITEST.PURCHASEORDERS1&quot;&gt;
+               &lt;xsd:complexType&gt;
+                  &lt;xsd:sequence&gt;
+                     &lt;xsd:element name=&quot;ORDERID&quot; type=&quot;xsd:decimal&quot;/&gt;
+                     &lt;xsd:element name=&quot;CUSTOMERID&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;EMAIL&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPMODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPADDRESS&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPCOUNTRY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPOSTALCODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPHONENUMBER&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRODUCT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;QUANTITY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRICE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;BILLAMOUNT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;ORDERDATE&quot; type=&quot;xsd:string&quot;/&gt;
+                  &lt;/xsd:sequence&gt;
+               &lt;/xsd:complexType&gt;
+            &lt;/xsd:element&gt;
+         &lt;/xsd:sequence&gt;
+         &lt;xsd:attribute name=&quot;id&quot; type=&quot;xsd:long&quot; use=&quot;optional&quot;/&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/fesb/activity/DB1/Response</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"/> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>SQL_CFG_1</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot;&gt;
+   &lt;xsd:element name=&quot;SQL_CFG_1&quot;&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:sequence&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; name=&quot;q1&quot;&gt;
+               &lt;xsd:complexType&gt;
+                  &lt;xsd:sequence&gt;
+                     &lt;xsd:element name=&quot;ORDERID&quot; type=&quot;xsd:int&quot;/&gt;
+                     &lt;xsd:element name=&quot;CUSTOMERID&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;EMAIL&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPMODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPADDRESS&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPCOUNTRY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPOSTALCODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPHONENUMBER&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRODUCT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;QUANTITY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRICE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;BILLAMOUNT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;ORDERDATE&quot; type=&quot;xsd:string&quot;/&gt;
+                  &lt;/xsd:sequence&gt;
+               &lt;/xsd:complexType&gt;
+            &lt;/xsd:element&gt;
+         &lt;/xsd:sequence&gt;
+         &lt;xsd:attribute name=&quot;id&quot; type=&quot;xsd:long&quot; use=&quot;optional&quot;/&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/fesb/activity/DB1/Request</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>OUT_PORT</string> 
+  </void> 
+  <void property="project"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;MapperProject version=&quot;3.0.1&quot; suppressEmptyItems=&quot;false&quot; convertor=&quot;nameIndexed&quot; separator=&quot;,&quot; suppressPattern=&quot;&quot;&gt;
+  &lt;XSLTEngine&gt;Xalan&lt;/XSLTEngine&gt;
+  &lt;XSLTEncoding&gt;UTF-8&lt;/XSLTEncoding&gt;
+  &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+  &lt;indent&gt;true&lt;/indent&gt;
+  &lt;setDTD&gt;false&lt;/setDTD&gt;
+  &lt;omit-xml-declaration&gt;false&lt;/omit-xml-declaration&gt;
+  &lt;Comments&gt;&lt;![CDATA[]]&gt;&lt;/Comments&gt;
+  &lt;InputStructure name=&quot;Application-Context&quot; mime=&quot;dtd&quot; rootName=&quot;Context&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;!ELEMENT Context (#PCDATA)&gt;]]&gt;&lt;/InputStructure&gt;
+  &lt;InputStructure name=&quot;OUT_PORT&quot; mime=&quot;xsd&quot; rootName=&quot;SQL_CFG_1&quot; namespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Response&quot; parser=&quot;Xerces&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Response&quot;&gt;
+   &lt;xsd:element name=&quot;SQL_CFG_1&quot;&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:sequence&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; name=&quot;TIFOSITEST.PURCHASEORDERS1&quot;&gt;
+               &lt;xsd:complexType&gt;
+                  &lt;xsd:sequence&gt;
+                     &lt;xsd:element name=&quot;ORDERID&quot; type=&quot;xsd:decimal&quot;/&gt;
+                     &lt;xsd:element name=&quot;CUSTOMERID&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;EMAIL&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPMODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPADDRESS&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPCOUNTRY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPOSTALCODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPHONENUMBER&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRODUCT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;QUANTITY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRICE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;BILLAMOUNT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;ORDERDATE&quot; type=&quot;xsd:string&quot;/&gt;
+                  &lt;/xsd:sequence&gt;
+               &lt;/xsd:complexType&gt;
+            &lt;/xsd:element&gt;
+         &lt;/xsd:sequence&gt;
+         &lt;xsd:attribute name=&quot;id&quot; type=&quot;xsd:long&quot; use=&quot;optional&quot;/&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;]]&gt;&lt;/InputStructure&gt;
+  &lt;OutputStructure name=&quot;IN_PORT&quot; mime=&quot;xsd&quot; rootName=&quot;SQL_CFG_1&quot; namespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot; parser=&quot;Xerces&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot;&gt;
+   &lt;xsd:element name=&quot;SQL_CFG_1&quot;&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:sequence&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; name=&quot;q1&quot;&gt;
+               &lt;xsd:complexType&gt;
+                  &lt;xsd:sequence&gt;
+                     &lt;xsd:element name=&quot;ORDERID&quot; type=&quot;xsd:int&quot;/&gt;
+                     &lt;xsd:element name=&quot;CUSTOMERID&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;EMAIL&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPMODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPADDRESS&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPCOUNTRY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPOSTALCODE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;SHIPPHONENUMBER&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRODUCT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;QUANTITY&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;PRICE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;BILLAMOUNT&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;ORDERDATE&quot; type=&quot;xsd:string&quot;/&gt;
+                  &lt;/xsd:sequence&gt;
+               &lt;/xsd:complexType&gt;
+            &lt;/xsd:element&gt;
+         &lt;/xsd:sequence&gt;
+         &lt;xsd:attribute name=&quot;id&quot; type=&quot;xsd:long&quot; use=&quot;optional&quot;/&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;]]&gt;&lt;/OutputStructure&gt;
+  &lt;Namespaces&gt;&lt;/Namespaces&gt;
+  &lt;Mappings&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,ORDERID:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,ORDERID:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,CUSTOMERID:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,CUSTOMERID:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,EMAIL:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,EMAIL:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,SHIPMODE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,SHIPMODE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,SHIPADDRESS:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,SHIPADDRESS:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,SHIPCOUNTRY:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,SHIPCOUNTRY:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,SHIPPOSTALCODE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,SHIPPOSTALCODE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,SHIPPHONENUMBER:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,SHIPPHONENUMBER:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,PRODUCT:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,PRODUCT:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,QUANTITY:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,QUANTITY:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,PRICE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,PRICE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,BILLAMOUNT:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,BILLAMOUNT:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,q1:0,ORDERDATE:0&quot; x=&quot;124&quot; y=&quot;22&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,TIFOSITEST.PURCHASEORDERS1:0,ORDERDATE:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+  &lt;/Mappings&gt;
+  &lt;Extensions&gt;&lt;/Extensions&gt;
+&lt;/MapperProject&gt;</string> 
+  </void> 
+ </object> 
+</java> 

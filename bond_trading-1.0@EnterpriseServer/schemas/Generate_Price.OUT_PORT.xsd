@@ -1,0 +1,12 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			   <xs:element name="MARKET">
+				 <xs:complexType>
+				   <xs:sequence>
+					 <xs:element name="ISIN" type="xs:string" minOccurs="0" />
+					 <xs:element name="BID_PRICE" type="xs:string" minOccurs="0" />
+					 <xs:element name="ASK_PRICE" type="xs:string" minOccurs="0" />
+					 <xs:element name="TIME_STAMP" type="xs:string" minOccurs="0" />
+				   </xs:sequence>
+				 </xs:complexType>
+			   </xs:element>
+			 </xs:schema>

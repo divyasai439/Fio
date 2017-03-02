@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.fiorano.com/fesb/activity/Convert_Isin_List" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.fiorano.com/fesb/activity/Convert_Isin_List">
+   <xsd:element name="STATIC_DATA_MESSAGE">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="STATIC_DATA">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="ISIN">
+                        <xsd:simpleType>
+                           <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="1" fixed="true"/>
+                              <xsd:maxLength value="20" fixed="true"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="ISSUER">
+                        <xsd:simpleType>
+                           <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="1" fixed="true"/>
+                              <xsd:maxLength value="20" fixed="true"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="CURRENCY">
+                        <xsd:simpleType>
+                           <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="3" fixed="true"/>
+                              <xsd:maxLength value="3" fixed="true"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="MATURITY_RANGE_FROM" type="xsd:string"/>
+                     <xsd:element name="MATURITY_RANGE_TO" type="xsd:string"/>
+                     <xsd:element name="COUPON_RANGE_MIN" type="xsd:decimal"/>
+                     <xsd:element name="COUPON_RANGE_MAX" type="xsd:string"/>
+                     <xsd:element name="CREDITRATING_RANGE_FROM" type="xsd:string"/>
+                     <xsd:element name="CREDITRATING_RANGE_TO" type="xsd:string"/>
+                     <xsd:element name="CREDITRATING_AGENCY">
+                        <xsd:simpleType>
+                           <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="1" fixed="true"/>
+                              <xsd:maxLength value="4" fixed="true"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="TICKER">
+                        <xsd:simpleType>
+                           <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="1" fixed="true"/>
+                              <xsd:maxLength value="20" fixed="true"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_16" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:set=&quot;http://exslt.org/sets&quot; xmlns:math=&quot;http://exslt.org/math&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:ns2=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns3=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot; xmlns:ns1=&quot;http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out&quot; xmlns:dateConversion=&quot;ext1&quot; xmlns:myext=&quot;ext2&quot; xmlns:strings=&quot;ext3&quot; extension-element-prefixes=&quot;datetime set math dateConversion myext strings&quot;&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_OUT_PORT&quot; select=&quot;document(&apos;OUT_PORT&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;ns3:SQL_CFG_1&gt;
+      &lt;xsl:for-each select=&quot;$document_OUT_PORT/ns1:XMODEM_CRC/ns1:TRANREC_DATA&quot;&gt;
+        &lt;ns3:Insert&gt;
+          &lt;ns3:TRANSACTION_STAMP&gt;
+            &lt;xsl:value-of select=&quot;./ns1:lEnterTime&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:TRANSACTION_STAMP&gt;
+          &lt;ns3:FIRMWARE&gt;
+            &lt;xsl:value-of select=&quot;./../ns1:TRANREC_HEADER/ns1:iMeterFwVerMajor&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:FIRMWARE&gt;
+          &lt;ns3:ENTRY_TIME&gt;
+            &lt;xsl:value-of select=&quot;./ns1:lEnterTime&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:ENTRY_TIME&gt;
+          &lt;ns3:EXIT_TIME&gt;
+            &lt;xsl:value-of select=&quot;./ns1:lExittime&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:EXIT_TIME&gt;
+          &lt;ns3:TRANSACTION_NUMBER&gt;
+            &lt;xsl:value-of select=&quot;substring-before((number(&apos;10000000&apos;))*(java:java.lang.Math.random()),&apos;.&apos;)&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:TRANSACTION_NUMBER&gt;
+          &lt;ns3:TICKET&gt;
+            &lt;xsl:value-of select=&quot;&apos;12455&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns3:TICKET&gt;&lt;ns2:TRANSACTION_NUMBER&gt;
+            &lt;xsl:value-of select=&quot;substring-before((java:java.lang.Math.random())*(number(&apos;10000000&apos;)),&apos;.&apos;)&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:TRANSACTION_NUMBER&gt;&lt;/ns3:Insert&gt;
+      &lt;/xsl:for-each&gt;
+    &lt;/ns3:SQL_CFG_1&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"/> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>XMODEM_CRC</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;xs:schema targetNamespace=&quot;http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out&quot; xmlns=&quot;http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; attributeFormDefault=&quot;qualified&quot; elementFormDefault=&quot;qualified&quot;&gt;
+  &lt;xs:element name=&quot;XMODEM_CRC&quot;&gt;
+    &lt;xs:complexType&gt;
+     &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;TRANREC_HEADER&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name=&quot;cLexisIdStr&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalCashAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalBillStackerAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalCardAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalCashBagAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;iMeterFwVerMajor&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;iMeterFwVerMinor&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TRANREC_DATA&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name=&quot;lEnterTime&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lExittime&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTicketNum&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+     &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"/> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>SQL_CFG_1</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot;&gt;
+   &lt;xsd:element name=&quot;SQL_CFG_1&quot;&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:sequence&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; name=&quot;Insert&quot;&gt;
+               &lt;xsd:complexType&gt;
+                  &lt;xsd:sequence&gt;
+                     &lt;xsd:element name=&quot;TRANSACTION_STAMP&quot; type=&quot;xsd:dateTime&quot;/&gt;
+                     &lt;xsd:element name=&quot;FIRMWARE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;ENTRY_TIME&quot; type=&quot;xsd:dateTime&quot;/&gt;
+                     &lt;xsd:element name=&quot;EXIT_TIME&quot; type=&quot;xsd:dateTime&quot;/&gt;
+                     &lt;xsd:element name=&quot;TRANSACTION_NUMBER&quot; type=&quot;xsd:decimal&quot;/&gt;
+                     &lt;xsd:element name=&quot;TICKET&quot; type=&quot;xsd:string&quot;/&gt;
+                  &lt;/xsd:sequence&gt;
+               &lt;/xsd:complexType&gt;
+            &lt;/xsd:element&gt;
+         &lt;/xsd:sequence&gt;
+         &lt;xsd:attribute name=&quot;id&quot; type=&quot;xsd:long&quot; use=&quot;optional&quot;/&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/fesb/activity/DB1/Request</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>OUT_PORT</string> 
+  </void> 
+  <void property="project"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;MapperProject version=&quot;3.0.1&quot; suppressEmptyItems=&quot;false&quot; convertor=&quot;nameIndexed&quot; separator=&quot;,&quot; suppressPattern=&quot;&quot;&gt;
+  &lt;XSLTEngine&gt;Xalan&lt;/XSLTEngine&gt;
+  &lt;XSLTEncoding&gt;UTF-8&lt;/XSLTEncoding&gt;
+  &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+  &lt;indent&gt;true&lt;/indent&gt;
+  &lt;setDTD&gt;false&lt;/setDTD&gt;
+  &lt;omit-xml-declaration&gt;false&lt;/omit-xml-declaration&gt;
+  &lt;Comments&gt;&lt;![CDATA[]]&gt;&lt;/Comments&gt;
+  &lt;InputStructure name=&quot;Application-Context&quot; mime=&quot;dtd&quot; rootName=&quot;Context&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;!ELEMENT Context (#PCDATA)&gt;]]&gt;&lt;/InputStructure&gt;
+  &lt;InputStructure name=&quot;OUT_PORT&quot; mime=&quot;xsd&quot; rootName=&quot;XMODEM_CRC&quot; namespace=&quot;http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out&quot; parser=&quot;Xerces&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;xs:schema targetNamespace=&quot;http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out&quot; xmlns=&quot;http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; attributeFormDefault=&quot;qualified&quot; elementFormDefault=&quot;qualified&quot;&gt;
+  &lt;xs:element name=&quot;XMODEM_CRC&quot;&gt;
+    &lt;xs:complexType&gt;
+     &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;TRANREC_HEADER&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name=&quot;cLexisIdStr&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalCashAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalBillStackerAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalCardAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTotalCashBagAmount&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;iMeterFwVerMajor&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;iMeterFwVerMinor&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TRANREC_DATA&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name=&quot;lEnterTime&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lExittime&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+              &lt;xs:element name=&quot;lTicketNum&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+     &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;]]&gt;&lt;/InputStructure&gt;
+  &lt;OutputStructure name=&quot;IN_PORT&quot; mime=&quot;xsd&quot; rootName=&quot;SQL_CFG_1&quot; namespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot; parser=&quot;Xerces&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/DB1/Request&quot;&gt;
+   &lt;xsd:element name=&quot;SQL_CFG_1&quot;&gt;
+      &lt;xsd:complexType&gt;
+         &lt;xsd:sequence&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; name=&quot;Insert&quot;&gt;
+               &lt;xsd:complexType&gt;
+                  &lt;xsd:sequence&gt;
+                     &lt;xsd:element name=&quot;TRANSACTION_STAMP&quot; type=&quot;xsd:dateTime&quot;/&gt;
+                     &lt;xsd:element name=&quot;FIRMWARE&quot; type=&quot;xsd:string&quot;/&gt;
+                     &lt;xsd:element name=&quot;ENTRY_TIME&quot; type=&quot;xsd:dateTime&quot;/&gt;
+                     &lt;xsd:element name=&quot;EXIT_TIME&quot; type=&quot;xsd:dateTime&quot;/&gt;
+                     &lt;xsd:element name=&quot;TRANSACTION_NUMBER&quot; type=&quot;xsd:decimal&quot;/&gt;
+                     &lt;xsd:element name=&quot;TICKET&quot; type=&quot;xsd:string&quot;/&gt;
+                  &lt;/xsd:sequence&gt;
+               &lt;/xsd:complexType&gt;
+            &lt;/xsd:element&gt;
+         &lt;/xsd:sequence&gt;
+         &lt;xsd:attribute name=&quot;id&quot; type=&quot;xsd:long&quot; use=&quot;optional&quot;/&gt;
+      &lt;/xsd:complexType&gt;
+   &lt;/xsd:element&gt;
+&lt;/xsd:schema&gt;]]&gt;&lt;/OutputStructure&gt;
+  &lt;Namespaces&gt;&lt;/Namespaces&gt;
+  &lt;Mappings&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0&quot; x=&quot;333&quot; y=&quot;22&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,XMODEM_CRC:0,[ZERO MANY]:0,TRANREC_DATA:0&quot; x=&quot;136&quot; y=&quot;22&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0,TRANSACTION_STAMP:0&quot; x=&quot;333&quot; y=&quot;22&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,XMODEM_CRC:0,[ZERO MANY]:0,TRANREC_DATA:0,lEnterTime:0&quot; x=&quot;123&quot; y=&quot;22&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0,FIRMWARE:0&quot; x=&quot;343&quot; y=&quot;22&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,XMODEM_CRC:0,TRANREC_HEADER:0,iMeterFwVerMajor:0&quot; x=&quot;144&quot; y=&quot;22&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0,ENTRY_TIME:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,XMODEM_CRC:0,[ZERO MANY]:0,TRANREC_DATA:0,lEnterTime:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0,EXIT_TIME:0&quot; x=&quot;-1&quot; y=&quot;-1&quot; inputPins=&quot;1&quot;&gt;
+      &lt;TreeGraphNode inputNode=&quot;OUT_PORT:0,XMODEM_CRC:0,[ZERO MANY]:0,TRANREC_DATA:0,lExittime:0&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0,TRANSACTION_NUMBER:0&quot; x=&quot;595&quot; y=&quot;272&quot; inputPins=&quot;1,2&quot;&gt;
+      &lt;FunctionGraphNode label=&quot;SubString-Before&quot; type=&quot;23&quot; x=&quot;341&quot; y=&quot;267&quot;&gt;
+        &lt;InputPins&gt;str,before&lt;/InputPins&gt;
+        &lt;OutputPins&gt;str&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;FunctionGraphNode label=&quot;.&quot; type=&quot;22&quot; x=&quot;81&quot; y=&quot;273&quot;&gt;
+        &lt;OutputPins&gt;str&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;FunctionGraphNode label=&quot;*&quot; type=&quot;5&quot; x=&quot;445&quot; y=&quot;119&quot;&gt;
+        &lt;InputPins&gt;num1,num2&lt;/InputPins&gt;
+        &lt;OutputPins&gt;num&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;FunctionGraphNode label=&quot;10000000&quot; type=&quot;22&quot; x=&quot;79&quot; y=&quot;99&quot;&gt;
+        &lt;OutputPins&gt;str&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;FunctionGraphNode label=&quot;Number&quot; type=&quot;9&quot; x=&quot;266&quot; y=&quot;69&quot;&gt;
+        &lt;InputPins&gt;num&lt;/InputPins&gt;
+        &lt;OutputPins&gt;num&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;FunctionGraphNode label=&quot;Random&quot; type=&quot;91&quot; x=&quot;187&quot; y=&quot;154&quot;&gt;
+        &lt;OutputPins&gt;R&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;1&quot; inputIndex=&quot;1&quot; outputID=&quot;2&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;1&quot; inputIndex=&quot;0&quot; outputID=&quot;3&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;5&quot; inputIndex=&quot;0&quot; outputID=&quot;4&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;3&quot; inputIndex=&quot;0&quot; outputID=&quot;5&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;3&quot; inputIndex=&quot;1&quot; outputID=&quot;6&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0,TICKET:0&quot; x=&quot;293&quot; y=&quot;22&quot; inputPins=&quot;1&quot;&gt;
+      &lt;FunctionGraphNode label=&quot;12455&quot; type=&quot;22&quot; x=&quot;95&quot; y=&quot;59&quot;&gt;
+        &lt;OutputPins&gt;str&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+  &lt;/Mappings&gt;
+  &lt;Extensions&gt;&lt;/Extensions&gt;
+  &lt;UserXSL node=&quot;IN_PORT:0,SQL_CFG_1:0,[ZERO MANY]:0,Insert:0&quot; index=&quot;2&quot;&gt;&lt;![CDATA[&lt;ns2:TRANSACTION_NUMBER&gt;
+            &lt;xsl:value-of select=&quot;substring-before((java:java.lang.Math.random())*(number(&apos;10000000&apos;)),&apos;.&apos;)&quot;&gt;&lt;/xsl:value-of&gt;
+          &lt;/ns2:TRANSACTION_NUMBER&gt;]]&gt;&lt;/UserXSL&gt;
+&lt;/MapperProject&gt;</string> 
+  </void> 
+ </object> 
+</java> 

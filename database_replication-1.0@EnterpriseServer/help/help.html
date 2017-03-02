@@ -1,0 +1,41 @@
+SCENARIO:
+--------
+      The Database Replication Demo demonstrates the usage of DBAdapter for database 
+replication.
+      The event process consists of a CRM service instance, using which PO is generated. 
+This PO is fed into the OracleIn instance of the DBAdapter. The OracleOut writes the PO 
+into the "PurchaseOrders" table in the Oracle Database.
+      The OracleOut instance of the DBAdapter, which is monitoring table "PurchaseOrders"
+for insert operations, gets these records, converts it into XML and passes it on to the 
+SqlServerIn instance of the DBAdapter. The SqlServerIn inserts into the "PurchaseOrders" 
+table in the connected SQL Server database. 
+
+PRELIMINARY STEPS:
+-----------------
+1. If you haven't run the script file: orcl.bat (windows) or orcl.sh (*nix) located in %FIORANO_HOME%/esb/samples
+   /EventProcesses/DatabaseReplication/resources. This batch or script file creates a schema named
+   tifositest and a table named purchaseorders in the Oracle Database that you will use 
+   to run this event process. In case you have already run this batch file and created 
+   the schema and table on the database, you can skip this step.
+2. If you haven't run the script file: mssql.bat (windows) or mssql.sh (*nix) located in %FIORANO_HOME%/esb/samples
+   /EventProcesses/DatabaseReplication/resources. This batch or script file creates a schema named
+   TifosiTest and a table named purchaseorders in the MSSQL Database that you will use 
+   to run this event process. In case you have already run this batch file and created 
+   the schema and table on the database, you can skip this step.
+3. Double click on OracleIn Service. This will open its CPS. Edit the JDBC URL to 
+   jdbc:oracle:thin:@<your database location>:<your database port>:<your database name>. 
+   For example, a typical JDBC URL would look like: jdbc:oracle:thin:@164.164.128.115:1521:orcl. 
+   Leave rest of the settings as is. Press the Finish button to save your settings.
+4. Do the same for OracleOut Service.
+5. Double click on SQLServerIn Service. This will open its CPS. Edit the JDBC URL to
+   jdbc:odbc:Driver={SQL Server};Server=<your database location>;Database=<your database 
+   name>;Uid=TifosiTest;Pwd=TifosiTest;. For example a typical JDBC URL would look 
+   like: jdbc:odbc:Driver={SQL Server};Server=164.164.128.115;Database=master;Uid=sa;Pwd=;. 
+   Leave rest of the settings as is. Press the Finish button to save your settings.
+
+RUNNING THE EVENT PROCESS:
+-------------------------
+1. Send a PO from the CRM Service.
+2. This will add a record in the database configured in OracleIn service.
+3. In addition, a similar record will be entered in the database configured in 
+   SQLServerIn Service.

@@ -1,0 +1,47 @@
+SCENARIO:
+--------
+      This demo is a scaled down version of a real life implementation at a customer 
+site. It represents a very typical situation in a production support environment where 
+the data in different systems needs to be synchronized. The data modification communication 
+between the systems involved is in the orm of proprietary flat files. The application 
+also shows how a business scenario can be built using the Fiorano Studio,
+ by simply dragging and dropping various coarse grained components (or 
+Fiorano Components) and orchestrating an event process based on the current business 
+needs.
+
+Orchestrating this application / event process involves the following steps.
+
+1. A particular directory is being monitored for files of type *.LDF.
+2. The contents of these files are in proprietary format. So a custom component is 
+   used to
+     a) extract the content of these files,
+     b) convert the extracted flat- file data into its corresponding XML,
+     c) then use the same to update a back-end database.
+3. Errors occurring in any of the intermediate steps are
+     a) displayed,
+     b) written to a file,
+     c) communicated via e-mail to a particular user.
+
+      To provide a seamless real-time transformation of the business documents flowing 
+through the composed Fiorano Network, Fiorano SOA Platform provides the XSLT 
+component. This Fiorano component converts the incoming business documents to an 
+outgoing format as per its configurations done at the time the event process was 
+composed. It uses the Fiorano Mapper Tool to configure mapping details between the 
+input and the output structures and utilizes the standard XSLT Engine to perform the 
+required transformations.
+
+PRELIMINARY STEPS:
+-----------------
+1. Start the HSQL database server by executing this batch file: starthsql.bat 
+   located in %FIORANO_HOME%\esb\samples\hsql.
+2. Also run the batch file init.bat from %FIORANO_HOME%\esb\samples\EventProcesses\
+   RevenueControlPacket\resources.
+   
+RUNNING THE EVENT PROCESS:
+-------------------------
+1. Run the batch file : RevenueControlPacket_Install.bat located in %FIORANO_HOME%\
+   esb\samples\EventProcesses\RevenueControlPacket\resources.
+2. View the Display windows that will open automatically. Once the processing is 
+   complete, an appropriate message will appear in at least one of the Display windows.
+3. Once you are done with the demo, kindly run the batch file cleanup.bat from 
+   %FIORANO_HOME%\esb\samples\EventProcesses\RevenueControlPacket\resources.   

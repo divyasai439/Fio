@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<target:target xmlns:target="http://fiorano.com/environment/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://fiorano.com/environment/1.0 env.xsd">
+    <target:instance name="Read_Isin_List">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Convert_Isin_List">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Split_Data_into_Individual_Isin">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Track_Price_Change">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Generate_Price">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Route_Quote">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Rfq_Boston">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Rfq_Singapore">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Rfq_London">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Wrong_Rfq">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Isin_Price_List">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+    <target:instance name="Price_Generation_Clock">
+        <target:instance-properties>
+            <target:deployment nodes="fps" cache="true"/>
+        </target:instance-properties>
+        <target:configuration-properties/>
+    </target:instance>
+</target:target>

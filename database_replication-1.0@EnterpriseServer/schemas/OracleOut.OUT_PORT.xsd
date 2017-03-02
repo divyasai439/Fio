@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.fiorano.com/fesb/activity/DB1/Response">
+   <xsd:element name="SQL_CFG_1">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="TIFOSITEST.PURCHASEORDERS1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="ORDERID" type="xsd:decimal"/>
+                     <xsd:element name="CUSTOMERID" type="xsd:string"/>
+                     <xsd:element name="EMAIL" type="xsd:string"/>
+                     <xsd:element name="SHIPMODE" type="xsd:string"/>
+                     <xsd:element name="SHIPADDRESS" type="xsd:string"/>
+                     <xsd:element name="SHIPCOUNTRY" type="xsd:string"/>
+                     <xsd:element name="SHIPPOSTALCODE" type="xsd:string"/>
+                     <xsd:element name="SHIPPHONENUMBER" type="xsd:string"/>
+                     <xsd:element name="PRODUCT" type="xsd:string"/>
+                     <xsd:element name="QUANTITY" type="xsd:string"/>
+                     <xsd:element name="PRICE" type="xsd:string"/>
+                     <xsd:element name="BILLAMOUNT" type="xsd:string"/>
+                     <xsd:element name="ORDERDATE" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+         <xsd:attribute name="id" type="xsd:long" use="optional"/>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

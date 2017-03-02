@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out" xmlns="http://www.fiorano.com/fesb/activity/BinaryFileReader1/Out" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="qualified" elementFormDefault="qualified">
+    <xs:element name="XMODEM_CRC">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="TRANREC_HEADER" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cLexisIdStr" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="lTotalCashAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="lTotalBillStackerAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="lTotalCardAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="lTotalCashBagAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="iMeterFwVerMajor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="iMeterFwVerMinor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TRANREC_DATA" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="lEnterTime" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="lExittime" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="lTicketNum" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

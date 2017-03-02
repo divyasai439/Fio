@@ -1,0 +1,27 @@
+SCENARIO:
+--------
+      This demo demonstrates a typical Bond Trading scenario wherein messages
+are exchanged at a very fast rate between various parties.
+
+      The prices of the bonds change at a fast rate. Buyers keep track of the
+price and based on the current price can request for a quote from a trading
+center. Based on the availability of the Bond at the requested price, the 
+center can send an appropriate response to the buyer.
+
+      In this demo, there are three financial centers viz. London, Singapore,
+Boston. They publish their Bonds identitified by unique ISINs. The Bond 
+details appear on GUIs for users to keep track of the changing prices. The 
+GUI allows user to buy a bond, by specifying the quantity and asking price. 
+Based on the ISIN, the request is routed to the appropriate center.
+
+RUNNING THE EVENT PROCESS:
+-------------------------
+1. Two screens come up displaying the Bond details. One of them is the BOND
+   PRICES- MAINTENANCE SCREEN, the other one is the Bond Pricing screen.
+2. Double Click on any ISIN in the Bond Pricing screen. It will open up a pop
+   up asking for the no of bonds you want to request for.
+3. Fill the size and click on 'Request'
+4. The response is sent back from the appropriate center asking the buyer to
+   fill the price.
+5. After filling the price, click on 'Send Quote'
+

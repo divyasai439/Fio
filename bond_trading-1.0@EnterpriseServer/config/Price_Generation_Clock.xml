@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_12" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.timer.model.TimerPM"> 
+  <void property="inputText"> 
+   <string>Wake Up!</string> 
+  </void> 
+  <void property="messageFormat"> 
+   <string>Text</string> 
+  </void> 
+  <void property="nextInterval"> 
+   <boolean>true</boolean> 
+  </void> 
+  <void property="pollInterval"> 
+   <int>300</int> 
+  </void> 
+  <void property="pollStartTime"> 
+   <long>1207724022000</long> 
+  </void> 
+  <void property="recordDef"> 
+   <null/> 
+  </void> 
+ </object> 
+</java> 

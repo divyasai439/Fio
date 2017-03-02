@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MARKET_PRICES">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MARKET_PRICE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ISIN" type="xs:string" minOccurs="0"></xs:element>
+              <xs:element name="NAME" type="xs:string" minOccurs="0"></xs:element>
+              <xs:element name="ISSUER" type="xs:string" minOccurs="0"></xs:element>
+              <xs:element name="BID_PRICE" type="xs:string" minOccurs="0"></xs:element>
+              <xs:element name="ASK_PRICE" type="xs:string" minOccurs="0"></xs:element>
+              <xs:element name="TIME_STAMP" type="xs:string" minOccurs="0"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

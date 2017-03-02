@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_16" class="java.beans.XMLDecoder"> 
+ <object class="com.fiorano.services.xslt.configuration.XsltPM"> 
+  <void property="XSL"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:java=&quot;http://xml.apache.org/xslt/java&quot; xmlns:datetime=&quot;http://exslt.org/dates-and-times&quot; xmlns:set=&quot;http://exslt.org/sets&quot; xmlns:math=&quot;http://exslt.org/math&quot; exclude-result-prefixes=&quot;xalan java lxslt&quot; xmlns:lxslt=&quot;http://xml.apache.org/xslt&quot; xmlns:xalan=&quot;http://xml.apache.org/xslt&quot; xmlns:ns2=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns3=&quot;http://www.fiorano.com/fesb/activity/SMTP1/smtp/in&quot; xmlns:ns1=&quot;http://www.fiorano.com/fesb/activity/fault&quot; xmlns:dateConversion=&quot;ext1&quot; xmlns:myext=&quot;ext2&quot; xmlns:strings=&quot;ext3&quot; extension-element-prefixes=&quot;datetime set math dateConversion myext strings&quot;&gt;
+  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; encoding=&quot;UTF-8&quot; xalan:indent-amount=&quot;2&quot; omit-xml-declaration=&quot;no&quot;&gt;&lt;/xsl:output&gt;
+  &lt;xsl:variable name=&quot;document&quot; select=&quot;/&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name=&quot;document_IN_PORT&quot; select=&quot;document(&apos;IN_PORT&apos;)&quot;&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;ns3:Email&gt;
+      &lt;To&gt;
+        &lt;xsl:value-of select=&quot;&apos;madhav@fiorano.com&apos;&quot;&gt;&lt;/xsl:value-of&gt;
+      &lt;/To&gt;
+      &lt;Body&gt;
+        &lt;TextBody&gt;
+          &lt;xsl:value-of select=&quot;concat($document_IN_PORT/ns1:Error/errorCode,$document_IN_PORT/ns1:Error/errorMessage,$document_IN_PORT/ns1:Error/errorDetail)&quot;&gt;&lt;/xsl:value-of&gt;
+        &lt;/TextBody&gt;
+      &lt;/Body&gt;
+    &lt;/ns3:Email&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</string> 
+  </void> 
+  <void property="errorHandlingConfiguration"> 
+   <void property="errorActionsMap"> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>3</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>2</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>1</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.RetryAction"> 
+       <void property="configuration"> 
+        <object class="com.fiorano.edbc.framework.service.exception.RetryConfiguration"> 
+         <void property="otherActions"> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+            <void property="id"> 
+             <int>1</int> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+          <void method="put"> 
+           <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+            <void property="enabled"> 
+             <boolean>true</boolean> 
+            </void> 
+           </object> 
+           <int>1</int> 
+          </void> 
+         </void> 
+        </object> 
+       </void> 
+       <void property="id"> 
+        <int>2</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>4</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+    <void method="get"> 
+     <object class="com.fiorano.edbc.framework.service.exception.ServiceErrorID" method="getServiceErrorId"> 
+      <int>0</int> 
+     </object> 
+     <void method="clear"/> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>6</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="enabled"> 
+        <boolean>true</boolean> 
+       </void> 
+       <void property="id"> 
+        <int>1</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void method="add"> 
+      <object class="com.fiorano.edbc.framework.service.exception.ErrorHandlingAction"> 
+       <void property="id"> 
+        <int>5</int> 
+       </void> 
+      </object> 
+     </void> 
+    </void> 
+   </void> 
+  </void> 
+  <void property="esbDefInPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"/> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>Error</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/fault&quot; xmlns:tns=&quot;http://www.fiorano.com/fesb/activity/fault&quot;&gt;
+    &lt;xsd:element name=&quot;Error&quot;&gt;
+       &lt;xsd:complexType&gt;
+          &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;errorCode&quot; type=&quot;xsd:string&quot;/&gt;
+            &lt;xsd:element name=&quot;errorMessage&quot; type=&quot;xsd:string&quot;/&gt;
+            &lt;xsd:element name=&quot;errorDetail&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;/&gt;
+            &lt;xsd:element name=&quot;data&quot; type=&quot;tns:data&quot; minOccurs=&quot;0&quot;/&gt;
+          &lt;/xsd:sequence&gt;
+       &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+    &lt;xsd:complexType name=&quot;data&quot;&gt;
+	  &lt;xsd:sequence&gt;
+         &lt;xsd:any namespace=&quot;##any&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; processContents=&quot;lax&quot;/&gt;
+      &lt;/xsd:sequence&gt;
+    &lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;
+</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/fesb/activity/fault</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="esbDefOutPort"> 
+   <object class="fiorano.esb.record.ESBRecordDefinition"> 
+    <void property="importedStructures"> 
+     <object class="java.util.Hashtable"/> 
+    </void> 
+    <void property="rootElementName"> 
+     <string>Email</string> 
+    </void> 
+    <void property="structure"> 
+     <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema targetNamespace=&quot;http://www.fiorano.com/fesb/activity/SMTP1/smtp/in&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.fiorano.com/fesb/activity/SMTP1/smtp/in&quot;&gt;
+  &lt;xsd:element name=&quot;Email&quot;&gt;
+    &lt;xsd:complexType&gt;
+      &lt;xsd:sequence&gt;
+        &lt;xsd:element name=&quot;To&quot; type=&quot;xsd:string&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;From&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;CC&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;BCC&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;ReplyTo&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Subject&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Headers&quot; type=&quot;HeadersType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Attachments&quot; type=&quot;AttachmentsType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Body&quot; type=&quot;Body&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+      &lt;/xsd:sequence&gt;
+    &lt;/xsd:complexType&gt;
+  &lt;/xsd:element&gt;
+  &lt;xsd:complexType name=&quot;Body&quot;&gt;
+    &lt;xsd:sequence&gt;
+      &lt;xsd:element name=&quot;TextBody&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;HtmlBody&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+    &lt;/xsd:sequence&gt;
+  &lt;/xsd:complexType&gt;
+  &lt;xsd:complexType name=&quot;AttachmentsType&quot;&gt;
+    &lt;xsd:sequence&gt;
+      &lt;xsd:element name=&quot;Attachment&quot; type=&quot;AttachmentType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&lt;/xsd:element&gt;
+    &lt;/xsd:sequence&gt;
+  &lt;/xsd:complexType&gt;
+  &lt;xsd:complexType name=&quot;AttachmentType&quot; mixed=&quot;true&quot;&gt;
+   &lt;xsd:simpleContent&gt;
+   &lt;xsd:extension base=&quot;xsd:string&quot;&gt;
+    &lt;xsd:attribute name=&quot;name&quot; use=&quot;required&quot; type=&quot;xsd:string&quot;&gt;
+    &lt;/xsd:attribute&gt;
+    &lt;xsd:attribute name=&quot;readFromFile&quot; default=&quot;no&quot;&gt;
+      &lt;xsd:simpleType&gt;
+        &lt;xsd:restriction base=&quot;xsd:NMTOKEN&quot;&gt;
+          &lt;xsd:enumeration value=&quot;yes&quot;&gt;&lt;/xsd:enumeration&gt;
+          &lt;xsd:enumeration value=&quot;no&quot;&gt;&lt;/xsd:enumeration&gt;
+        &lt;/xsd:restriction&gt;
+      &lt;/xsd:simpleType&gt;
+    &lt;/xsd:attribute&gt;
+    &lt;xsd:attribute name=&quot;base64Encoded&quot; default=&quot;no&quot;&gt;
+      &lt;xsd:simpleType&gt;
+        &lt;xsd:restriction base=&quot;xsd:NMTOKEN&quot;&gt;
+          &lt;xsd:enumeration value=&quot;yes&quot;&gt;&lt;/xsd:enumeration&gt;
+          &lt;xsd:enumeration value=&quot;no&quot;&gt;&lt;/xsd:enumeration&gt;
+        &lt;/xsd:restriction&gt;
+      &lt;/xsd:simpleType&gt;
+    &lt;/xsd:attribute&gt;
+    &lt;/xsd:extension&gt;
+    &lt;/xsd:simpleContent&gt;
+  &lt;/xsd:complexType&gt;
+  &lt;xsd:complexType name=&quot;HeadersType&quot;&gt;
+    &lt;xsd:sequence&gt;
+      &lt;xsd:element name=&quot;Header&quot; type=&quot;HeaderType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;
+	&lt;/xsd:sequence&gt;
+  &lt;/xsd:complexType&gt;
+&lt;xsd:complexType name=&quot;HeaderType&quot;&gt;
+&lt;xsd:attribute name=&quot;name&quot; use=&quot;required&quot; type=&quot;xsd:string&quot;&gt;&lt;/xsd:attribute&gt;
+&lt;xsd:attribute name=&quot;value&quot; use=&quot;required&quot; type=&quot;xsd:string&quot;&gt;&lt;/xsd:attribute&gt;
+&lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;</string> 
+    </void> 
+    <void property="targetNamespace"> 
+     <string>http://www.fiorano.com/fesb/activity/SMTP1/smtp/in</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="inputStructureName"> 
+   <string>IN_PORT</string> 
+  </void> 
+  <void property="project"> 
+   <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;MapperProject version=&quot;3.0.1&quot; suppressEmptyItems=&quot;false&quot; convertor=&quot;nameIndexed&quot; separator=&quot;,&quot; suppressPattern=&quot;&quot;&gt;
+  &lt;XSLTEngine&gt;Xalan&lt;/XSLTEngine&gt;
+  &lt;XSLTEncoding&gt;UTF-8&lt;/XSLTEncoding&gt;
+  &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+  &lt;indent&gt;true&lt;/indent&gt;
+  &lt;setDTD&gt;false&lt;/setDTD&gt;
+  &lt;omit-xml-declaration&gt;false&lt;/omit-xml-declaration&gt;
+  &lt;Comments&gt;&lt;![CDATA[]]&gt;&lt;/Comments&gt;
+  &lt;InputStructure name=&quot;Application-Context&quot; mime=&quot;dtd&quot; rootName=&quot;Context&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;!ELEMENT Context (#PCDATA)&gt;]]&gt;&lt;/InputStructure&gt;
+  &lt;InputStructure name=&quot;IN_PORT&quot; mime=&quot;XSD&quot; rootName=&quot;Error&quot; namespace=&quot;http://www.fiorano.com/fesb/activity/fault&quot; parser=&quot;Xerces&quot; duplicates=&quot;0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; targetNamespace=&quot;http://www.fiorano.com/fesb/activity/fault&quot; xmlns:tns=&quot;http://www.fiorano.com/fesb/activity/fault&quot;&gt;
+    &lt;xsd:element name=&quot;Error&quot;&gt;
+       &lt;xsd:complexType&gt;
+          &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;errorCode&quot; type=&quot;xsd:string&quot;/&gt;
+            &lt;xsd:element name=&quot;errorMessage&quot; type=&quot;xsd:string&quot;/&gt;
+            &lt;xsd:element name=&quot;errorDetail&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;/&gt;
+            &lt;xsd:element name=&quot;data&quot; type=&quot;tns:data&quot; minOccurs=&quot;0&quot;/&gt;
+          &lt;/xsd:sequence&gt;
+       &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+    &lt;xsd:complexType name=&quot;data&quot;&gt;
+	  &lt;xsd:sequence&gt;
+         &lt;xsd:any namespace=&quot;##any&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; processContents=&quot;lax&quot;/&gt;
+      &lt;/xsd:sequence&gt;
+    &lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;
+]]&gt;&lt;/InputStructure&gt;
+  &lt;OutputStructure name=&quot;IN_PORT&quot; mime=&quot;xsd&quot; rootName=&quot;Email&quot; namespace=&quot;http://www.fiorano.com/fesb/activity/SMTP1/smtp/in&quot; parser=&quot;Xerces&quot; duplicates=&quot;0,0&quot; includeDuplicates=&quot;false&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsd:schema targetNamespace=&quot;http://www.fiorano.com/fesb/activity/SMTP1/smtp/in&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.fiorano.com/fesb/activity/SMTP1/smtp/in&quot;&gt;
+  &lt;xsd:element name=&quot;Email&quot;&gt;
+    &lt;xsd:complexType&gt;
+      &lt;xsd:sequence&gt;
+        &lt;xsd:element name=&quot;To&quot; type=&quot;xsd:string&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;From&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;CC&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;BCC&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;ReplyTo&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Subject&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Headers&quot; type=&quot;HeadersType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Attachments&quot; type=&quot;AttachmentsType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+        &lt;xsd:element name=&quot;Body&quot; type=&quot;Body&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;/xsd:element&gt;
+      &lt;/xsd:sequence&gt;
+    &lt;/xsd:complexType&gt;
+  &lt;/xsd:element&gt;
+  &lt;xsd:complexType name=&quot;Body&quot;&gt;
+    &lt;xsd:sequence&gt;
+      &lt;xsd:element name=&quot;TextBody&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;HtmlBody&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot;&gt;&lt;/xsd:element&gt;
+    &lt;/xsd:sequence&gt;
+  &lt;/xsd:complexType&gt;
+  &lt;xsd:complexType name=&quot;AttachmentsType&quot;&gt;
+    &lt;xsd:sequence&gt;
+      &lt;xsd:element name=&quot;Attachment&quot; type=&quot;AttachmentType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&lt;/xsd:element&gt;
+    &lt;/xsd:sequence&gt;
+  &lt;/xsd:complexType&gt;
+  &lt;xsd:complexType name=&quot;AttachmentType&quot; mixed=&quot;true&quot;&gt;
+   &lt;xsd:simpleContent&gt;
+   &lt;xsd:extension base=&quot;xsd:string&quot;&gt;
+    &lt;xsd:attribute name=&quot;name&quot; use=&quot;required&quot; type=&quot;xsd:string&quot;&gt;
+    &lt;/xsd:attribute&gt;
+    &lt;xsd:attribute name=&quot;readFromFile&quot; default=&quot;no&quot;&gt;
+      &lt;xsd:simpleType&gt;
+        &lt;xsd:restriction base=&quot;xsd:NMTOKEN&quot;&gt;
+          &lt;xsd:enumeration value=&quot;yes&quot;&gt;&lt;/xsd:enumeration&gt;
+          &lt;xsd:enumeration value=&quot;no&quot;&gt;&lt;/xsd:enumeration&gt;
+        &lt;/xsd:restriction&gt;
+      &lt;/xsd:simpleType&gt;
+    &lt;/xsd:attribute&gt;
+    &lt;xsd:attribute name=&quot;base64Encoded&quot; default=&quot;no&quot;&gt;
+      &lt;xsd:simpleType&gt;
+        &lt;xsd:restriction base=&quot;xsd:NMTOKEN&quot;&gt;
+          &lt;xsd:enumeration value=&quot;yes&quot;&gt;&lt;/xsd:enumeration&gt;
+          &lt;xsd:enumeration value=&quot;no&quot;&gt;&lt;/xsd:enumeration&gt;
+        &lt;/xsd:restriction&gt;
+      &lt;/xsd:simpleType&gt;
+    &lt;/xsd:attribute&gt;
+    &lt;/xsd:extension&gt;
+    &lt;/xsd:simpleContent&gt;
+  &lt;/xsd:complexType&gt;
+  &lt;xsd:complexType name=&quot;HeadersType&quot;&gt;
+    &lt;xsd:sequence&gt;
+      &lt;xsd:element name=&quot;Header&quot; type=&quot;HeaderType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;
+	&lt;/xsd:sequence&gt;
+  &lt;/xsd:complexType&gt;
+&lt;xsd:complexType name=&quot;HeaderType&quot;&gt;
+&lt;xsd:attribute name=&quot;name&quot; use=&quot;required&quot; type=&quot;xsd:string&quot;&gt;&lt;/xsd:attribute&gt;
+&lt;xsd:attribute name=&quot;value&quot; use=&quot;required&quot; type=&quot;xsd:string&quot;&gt;&lt;/xsd:attribute&gt;
+&lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;]]&gt;&lt;/OutputStructure&gt;
+  &lt;Namespaces&gt;&lt;/Namespaces&gt;
+  &lt;Mappings&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,Email:0,To:0&quot; x=&quot;301&quot; y=&quot;31&quot; inputPins=&quot;1&quot;&gt;
+      &lt;FunctionGraphNode label=&quot;madhav@fiorano.com&quot; type=&quot;22&quot; x=&quot;97&quot; y=&quot;51&quot;&gt;
+        &lt;OutputPins&gt;str&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+    &lt;GraphModel outputNode=&quot;IN_PORT:0,Email:0,Body:0,TextBody:0&quot; x=&quot;498&quot; y=&quot;36&quot; inputPins=&quot;1&quot;&gt;
+      &lt;FunctionGraphNode label=&quot;Concat&quot; type=&quot;20&quot; x=&quot;404&quot; y=&quot;92&quot;&gt;
+        &lt;InputPins&gt;1,2,3,4&lt;/InputPins&gt;
+        &lt;OutputPins&gt;str&lt;/OutputPins&gt;
+        &lt;Properties&gt;&lt;/Properties&gt;
+      &lt;/FunctionGraphNode&gt;
+      &lt;TreeGraphNode inputNode=&quot;IN_PORT:0,Error:0,errorCode:0&quot; x=&quot;105&quot; y=&quot;24&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;TreeGraphNode inputNode=&quot;IN_PORT:0,Error:0,errorMessage:0&quot; x=&quot;99&quot; y=&quot;79&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;TreeGraphNode inputNode=&quot;IN_PORT:0,Error:0,errorDetail:0&quot; x=&quot;103&quot; y=&quot;134&quot;&gt;
+        &lt;InputPins&gt;1st&lt;/InputPins&gt;
+        &lt;OutputPins&gt;1st&lt;/OutputPins&gt;
+      &lt;/TreeGraphNode&gt;
+      &lt;Link inputID=&quot;0&quot; inputIndex=&quot;0&quot; outputID=&quot;1&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;1&quot; inputIndex=&quot;0&quot; outputID=&quot;2&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;1&quot; inputIndex=&quot;1&quot; outputID=&quot;3&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+      &lt;Link inputID=&quot;1&quot; inputIndex=&quot;2&quot; outputID=&quot;4&quot; outputIndex=&quot;0&quot;&gt;&lt;/Link&gt;
+    &lt;/GraphModel&gt;
+  &lt;/Mappings&gt;
+  &lt;Extensions&gt;&lt;/Extensions&gt;
+&lt;/MapperProject&gt;</string> 
+  </void> 
+ </object> 
+</java> 
